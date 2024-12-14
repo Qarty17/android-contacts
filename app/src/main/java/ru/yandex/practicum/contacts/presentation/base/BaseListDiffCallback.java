@@ -25,9 +25,10 @@ public class BaseListDiffCallback<T> extends DiffUtil.ItemCallback<T> implements
     public boolean areContentsTheSame(@NonNull T oldItem, @NonNull T newItem) {
         return oldItem.equals(newItem);
     }
-
+    
     @Override
-    public boolean theSameAs(T o) {
-        return this.hashCode()==o.hashCode();
+    public Object getChangePayload(@NonNull T oldItem, @NonNull T newItem) {
+        return newItem;
     }
+
 }
